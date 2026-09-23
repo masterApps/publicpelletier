@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block style %}
+<title>{{ article.title }}</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/print.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/article.css' %}"/>
+{% endblock %}
+
+{% block content %}
+{% if article.pdf_data %}
+<div class="mt-4" style="text-align: center;">
+    <a href="{% url 'download_file' article.slug %}" class="btn btn-primary" download>
+        Download PDF: {{article.pdf_name}}
+    </a>
+</div>
+{% endif %}
+<div class="article-body">
+    <h1>{{ article.title }}</h1>
+    <div>
+        {{ content_html|safe }}
+    </div>
+
+    <div>published on {{ article.publish_date }}</div>
+</div>
+{% endblock %}

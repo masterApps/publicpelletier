@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %}Upcoming Meetings{% endblock %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/print.css' %}" />
+<link href="{% static 'css/card.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div style="text-align: center;">
+    <button onClick="window.print()">Print Itinerary</button>
+    <button onClick="toggleView()">List/Grid View</button>
+</div>
+<div class="container_my text-center">
+    <h1 class="h1 heading">Upcoming Meetings</h1>
+
+{% load tz %}
+{% timezone "UTC" %}
+    <div class="card-list">
+        {% for meeting in meetings %}
+        {% if meeting.date_start|date:"Y-m-d" > today|date:"Y-m-d" %}
+        <div class="card" onclick="toggleCard(this)">
+
+            {% if meeting.date_start|date:"Y-m" == meeting.date_end|date:"Y-m" %}
+                {% if meeting.date_start == meeting.date_end %}
+                <h2 class="card-title">{{meeting.date_start|date:'M. d, Y'}}</h2>
+                {% else %}
+                <h2 class="card-title">{{meeting.date_start|date:'M. d'}} - {{meeting.date_end|date:'d, Y'}}</h2>
+                {% endif %}
+            {% else %}
+                {% if meeting.date_start|date:"Y" == meeting.date_end|date:"Y" %}
+                <h2 class="card-title">{{meeting.date_start|date:'M. d'}} - {{meeting.date_end|date:'M d, Y'}}</h2>
+                {% else %}
+                <h2 class="card-title">{{meeting.date_start|date:'M. d, Y'}} - {{meeting.date_end|date:'M d, Y'}}</h2>
+                {% endif %}
+            {% endif %}
+
+            <p class="card-body">{{meeting.location}}</p>
+            <p class="card-expanded">{{meeting.host}}</p>
+
+            <p class="card-expanded">{{meeting.address}}</p>
+
+            {% if meeting.city != "Unknown" %}
+            <p class="card-body">{{meeting.city}}</p>
+            {% endif %}
+
+            {% if meeting.phone != "Unknown" %}
+            <p class="card-body">{{meeting.phone}}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container_my text-center">
+    <h1 class="h1 heading">Past Meetings</h1>
+
+    <div class="card-list">
+        {% for meeting in meetings %}
+        {% if meeting.date_start|date:"Y-m-d" <= today|date:"Y-m-d" %}
+        <div class="card" onclick="toggleCard(this)">
+
+            {% if meeting.date_start|date:"Y-m" == meeting.date_end|date:"Y-m" %}
+            {% if meeting.date_start == meeting.date_end %}
+            <h2 class="card-title">{{meeting.date_start|date:'M. d, Y'}}</h2>
+            {% else %}
+            <h2 class="card-title">{{meeting.date_start|date:'M. d'}} - {{meeting.date_end|date:'d, Y'}}</h2>
+            {% endif %}
+            {% else %}
+            {% if meeting.date_start|date:"Y" == meeting.date_end|date:"Y" %}
+            <h2 class="card-title">{{meeting.date_start|date:'M. d'}} - {{meeting.date_end|date:'M d, Y'}}</h2>
+            {% else %}
+            <h2 class="card-title">{{meeting.date_start|date:'M. d, Y'}} - {{meeting.date_end|date:'M d, Y'}}</h2>
+            {% endif %}
+            {% endif %}
+
+            <p class="card-body">{{meeting.location}}</p>
+            <p class="card-expanded">{{meeting.host}}</p>
+
+            <p class="card-expanded">{{meeting.address}}</p>
+
+            {% if meeting.city != "Unknown" %}
+            <p class="card-body">{{meeting.city}}</p>
+            {% endif %}
+
+            {% if meeting.phone != "Unknown" %}
+            <p class="card-body">{{meeting.phone}}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{% static 'itinerary/scripts/expandedCard.js' %}" ></script>
+
+<div class="printView listView">
+    <h2 style="text-align: center;">Mike Pelletier Itinerary For 2026</h2>
+    <table style="width: 100%;">
+        <tr class="table-header">
+            <th style="width: 75px;"><b>Date</b></th>
+            <th><b>Church / Location</b></th>
+            <th><b>Pastor</b></th>
+            <th><b>Address</b></th>
+            <th><b>Phone Number</b></th>
+        </tr>
+        {% for meeting in meetings %}
+        <tr>
+            {% if meeting.date_start == meeting.date_end %}
+            <td>{{meeting.date_start|date:"m/d"}}</td>
+            {% else %}
+             {% if meeting.date_start|date:"m" == meeting.date_end|date:"m" %}
+            <td class="table-date">{{meeting.date_start|date:"m/d"}}-{{meeting.date_end|date:"d"}}</td>
+             {% else %}
+             <td class="table-date">{{meeting.date_start|date:"m/d"}} - {{meeting.date_end|date:"m/d"}}</td>
+             {% endif %}
+            {% endif %}
+            <td>{{meeting.location}}</td>
+
+            {% if meeting.city == "N/A"%}
+            <td colspan="2">{{meeting.host}}</td>
+            {% else %}
+            <td>{{meeting.host}}</td>
+            <td>{{meeting.address}} <br/> {{meeting.city}}</td>
+            {% endif %}
+
+            {% if meeting.phone == "N/A"%}
+            <td></td>
+            {% else %}
+            <td>{{meeting.phone}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endtimezone %}
+{% endblock %}

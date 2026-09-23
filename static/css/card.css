@@ -1,0 +1,190 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+}
+
+/* Card list container */
+.card-list {
+    /*justify-content: start;*/
+    max-width: 100%;
+    margin: 2rem 10%;
+    display: list-item;
+    gap: 1.5rem;
+    /* Mobile-first: single column */
+    /*justify-items: start;*/
+    align-items: center;
+    place-self: center;
+}
+
+/* Individual card styles */
+.card {
+    background: #0a1931;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-width: 250px;
+    height: fit-content;
+    margin: 16px;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card title */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.card-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: white;
+}
+
+/* Card body text */
+.card-body {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+/* Card image */
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.card-spot {
+    max-width: 100%;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+}
+
+/* Expandable content (initially hidden) */
+.card-expanded {
+    text-align: center;
+    color: white;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    line-height: 1.2;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Card link wrapper */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link:hover .card {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Expandable card functionality */
+.card:has(.card-expanded) {
+    cursor: pointer;
+}
+
+.card:has(.card-expanded):hover .card-expanded {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+/* Alternative expandable card with click functionality */
+.card.expandable .card-expanded {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding-top: 0;
+    margin-top: 0;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+}
+
+.card.expandable.expanded .card-expanded {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+/* Responsive design */
+
+/* Tablet and small desktop */
+@media (min-width: 768px) {
+    .card-list {
+        grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+        gap: 2rem;
+        justify-content: start;
+        display: grid;
+    }
+
+    .card {
+        width: fit-content;
+        min-width: 250px;
+        height: fit-content;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1024px) {
+    .card-list {
+        grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+        gap: 2.5rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+    .card-list {
+        grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+    }
+}

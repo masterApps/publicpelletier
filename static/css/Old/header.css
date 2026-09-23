@@ -1,0 +1,131 @@
+/* Header Style */
+.header {
+    display: flex;
+    background-color: #0a1931;
+    color: #fff;
+    display: block;
+    padding: 50px;
+}
+
+/* Logo */
+.logo {
+    background-color: #0a1931;
+    color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 100px;
+    margin-right: 16px;
+}
+
+.logo span {
+    font-size: 48px;
+    font-weight:lighter;
+    text-transform: uppercase;
+}
+
+/* Navigation Menu */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation styles */
+.navbar {
+    background-color: #dcebf1;
+    color: white;
+    /* padding: 1rem 2rem; */
+    position: relative;
+    display: inline;
+    margin-bottom: 1rem;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4dabf7;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 10;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        flex-direction: column;
+        background-color: #dcebf1;
+        width: 80%;
+        height: 100vh;
+        z-index: 1;
+        text-align: center;
+        transition: 0.3s;
+        padding-top: 4rem;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 1.5rem 0;
+    }
+    
+    .nav-link {
+        font-size: 1.2rem;
+    }
+}

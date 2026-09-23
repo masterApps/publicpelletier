@@ -1,0 +1,70 @@
+<!-- templates/meetings/form.html -->
+{% extends "editor-base.html" %}
+
+{% block style %}
+{% load static %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/backend/forms.css'%}" />
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>📅 Multiple Meeting Submission System</h1>
+    <div class="container">
+        <!-- Add CSRF token for JavaScript -->
+        {% csrf_token %}
+        <div class="m">
+            <!-- CSV Upload Section -->
+            <div class="upload-section">
+                <h3>📁 Upload CSV File</h3>
+                <p>Upload a CSV file to auto-populate meeting fields. Expected columns: date_start, date_end, location, host, address, city, phone</p>
+
+                <div class="file-input-wrapper">
+                    <input type="file" id="csvFile" class="file-input" accept=".csv" />
+                    <label for="csvFile" class="file-input-label">Choose CSV File</label>
+                </div>
+
+                <div class="csv-example">
+                    <strong>CSV Example:</strong><br>
+                    date_start,date_end,location,host,address,city,phone<br>
+                    2025-07-15,2025-07-15,Conference Room A,John Doe,123 Main St,New York,555-1234<br>
+                    2025-07-16,2025-07-16,Meeting Hall B,Jane Smith,456 Oak Ave,Boston,555-5678
+                </div>
+
+                <div id="csvStatus" style="margin-top: 10px;"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button class="btn btn-primary" onclick="addMeeting()">Add Meeting</button>
+                <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+                <button class="btn btn-success" onclick="submitMeetings()">Submit All Meetings</button>
+                <button class="btn btn-info" onclick="loadMeetings()">View Existing Meetings</button>
+                <button class="btn btn-danger" onclick="deleteMeetings()">Delete Past Meetings</button>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Processing...</p>
+            </div>
+
+            <!-- Messages -->
+            <div id="messages"></div>
+
+            <!-- Existing Meetings List -->
+            <div id="meetingsList" class="meetings-list" style="display: none;">
+                <h3>📋 Existing Meetings</h3>
+                <div id="meetingsListContent"></div>
+            </div>
+
+            <!-- Meetings Container -->
+            <div id="meetingsContainer" class="meetings-container">
+                <!-- Meetings will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'scripts/insertingMeetings.js' %}"></script>
+</div>
+{% endblock %}

@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
+    <link rel="stylesheet" type="text/css" href="/css/Old/header.css" />
+    <link rel="stylesheet" type="text/css" href="/css/Old/home.css" />
+    <link rel="stylesheet" type="text/css" href="/css/Old/style.css" />
+    <!--    <link rel="stylesheet" type="text/css" href="/static/css/mobile.css" />-->
+    <link rel="stylesheet" type="text/css" href="/css/Old/old.css" />
+    <link rel="stylesheet" type="text/css" href="/css/card.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="/css/print.css" />
+
+    <title>Travel Itinerary</title>
+</head>
+<body>
+<!-- <header> -->
+<div class="header">
+    <div class="logo">
+        <img src="/static/images/logo.png" alt="Logo">
+        <span>MIKE PELLETIER MINISTRIES</span>
+        <button class="hamburger">☰</button>
+    </div>
+    <!-- </header> -->
+</div>
+<div class="header navmenu">
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="nav-menu">
+
+                <li class="nav-item">
+                    <a href="/" class="nav-link nav-btn btn btn-outline-light me-1">Home</a></li>
+
+
+                <li class="nav-item">
+                    <a href="/materials/" class="nav-link nav-btn btn btn-outline-light me-1">Meeting Materials</a></li>
+
+
+                <li class="nav-item">
+                    <a href="/about" class="nav-link nav-btn btn btn-outline-light me-1">About</a></li>
+
+
+                <li class="nav-item">
+                    <a href="/sermons/" class="nav-link nav-btn btn btn-outline-light me-1">Sermons</a></li>
+
+
+                <li class="nav-item">
+                    <a href="/itinerary/" class="nav-link active nav-btn btn btn-outline-light me-1">Itinerary</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <script src="/static/scripts/navbar.js" ></script>
+</div>
+
+
+
+
+
+<div class="body_content">
+
+    <div class="container_my text-center">
+        <h1 class="h1 heading">Upcoming Meetings</h1>
+        <div><button onClick="window.print()">Print Itinerary
+        </button></div>
+
+
+
+
+        <div class="card-list">
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">August 3 - 6, 2025</h2>
+
+
+
+                <p class="card-body">Lone Rock Baptist</p>
+                <p class="card-expanded">Ezra Day</p>
+
+                <p class="card-expanded">N 8096 6th Ave.</p>
+
+
+                <p class="card-body">New Lisbon, WI  53950</p>
+
+
+
+                <p class="card-body">608-853-0071</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">August 10 - 15, 2025</h2>
+
+
+
+                <p class="card-body">Wild Rose Baptist</p>
+                <p class="card-expanded">Ben Terpstra</p>
+
+                <p class="card-expanded">1013 Main ST.</p>
+
+
+                <p class="card-body">Wild Rose, WI  54984</p>
+
+
+
+                <p class="card-body">608-397-6688</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">August 17 - 21, 2025</h2>
+
+
+
+                <p class="card-body">Spooner Baptist</p>
+                <p class="card-expanded">Darrel Fleming</p>
+
+                <p class="card-expanded">W7135 Green Valley Rd.</p>
+
+
+                <p class="card-body">Spooner, WI  54801</p>
+
+
+
+                <p class="card-body">715-635-2277</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">August 24 - 27, 2025</h2>
+
+
+
+                <p class="card-body">Freedom Baptist</p>
+                <p class="card-expanded">Jim Kohr</p>
+
+                <p class="card-expanded">600 Lake Rd.</p>
+
+
+                <p class="card-body">Havelock, NC  28532</p>
+
+
+
+                <p class="card-body">(717) 712-2591</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">September 7 - 12, 2025</h2>
+
+
+
+                <p class="card-body">Memorial Bapist Church</p>
+                <p class="card-expanded">Mike West</p>
+
+                <p class="card-expanded">3693 SE 95th St</p>
+
+
+                <p class="card-body">Ocala, FL  34480</p>
+
+
+
+                <p class="card-body">(352) 454-3021</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">September 14 - 19, 2025</h2>
+
+
+
+                <p class="card-body">Victory Baptist Church</p>
+                <p class="card-expanded">Rolland Roberts</p>
+
+                <p class="card-expanded">PO Box 549 Old Grandview Rd.</p>
+
+
+                <p class="card-body">Beaver, WV  25813</p>
+
+
+
+                <p class="card-body">(304) 255-4535</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">September 21 - 24, 2025</h2>
+
+
+
+                <p class="card-body">Berean Baptist</p>
+                <p class="card-expanded">Mark Davis</p>
+
+                <p class="card-expanded">2678 Highway 41</p>
+
+
+                <p class="card-body">Griffin, GA  30224</p>
+
+
+
+                <p class="card-body">770-227-5817</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">October 5 - 8, 2025</h2>
+
+
+
+                <p class="card-body">Cornerstone Baptist</p>
+                <p class="card-expanded">John Leonard</p>
+
+                <p class="card-expanded">18280 S. La Canada</p>
+
+
+                <p class="card-body">Sahaurita, AZ  85629</p>
+
+
+
+                <p class="card-body">928-919-1092</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">October 12 - 17, 2025</h2>
+
+
+
+                <p class="card-body">Temple Baptist</p>
+                <p class="card-expanded">Cliff Lawton</p>
+
+                <p class="card-expanded">2600 N. Stone Ave.</p>
+
+
+                <p class="card-body">Tucson, AZ  85703</p>
+
+
+
+                <p class="card-body">520-250-9201</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">October 19 - 23, 2025</h2>
+
+
+
+                <p class="card-body">Faith Baptist</p>
+                <p class="card-expanded">Emory Brown</p>
+
+                <p class="card-expanded">P.O. Box 1083</p>
+
+
+                <p class="card-body">Show Low, AZ  85902</p>
+
+
+
+                <p class="card-body">(928) 242-4278</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">November 8 - 14, 2025</h2>
+
+
+
+                <p class="card-body">Eastside Baptist</p>
+                <p class="card-expanded">David Fox</p>
+
+                <p class="card-expanded">195 Serral Dr.</p>
+
+
+                <p class="card-body">Greeneville, TN  37745</p>
+
+
+
+                <p class="card-body">(423) 639-2582</p>
+
+            </div>
+
+
+
+            <div class="card" onclick="toggleCard(this)">
+
+
+
+                <h2 class="card-title">December 7 - 10, 2025</h2>
+
+
+
+                <p class="card-body">Grace Baptist</p>
+                <p class="card-expanded">Doug Crosby</p>
+
+                <p class="card-expanded">1955 Parker Dr.</p>
+
+
+                <p class="card-body">Ozark, AL  36360</p>
+
+
+
+                <p class="card-body">(334) 774-2311</p>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="container_my text-center">
+        <h1 class="h1 heading">Past Meetings</h1>
+
+        <div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <script src="/itinerary/static/itinerary/scripts/expandedCard.js" ></script>
+
+    <div class="printView">
+        <h1 style="text-align: center;">Mike Pelletier Itinerary</h1>
+        <table>
+            <tr class="table-header">
+                <th><b>Date</b></th>
+                <th><b>Church / Location</b></th>
+                <th><b>Pastor</b></th>
+                <th><b>Address</b></th>
+                <th><b>Phone Number</b></th>
+            </tr>
+
+            <tr>
+
+
+                <td>08/03 -<br/> 08/06/2025</td>
+
+
+                <td>Lone Rock Baptist</td>
+
+
+                <td>Ezra Day</td>
+                <td>N 8096 6th Ave. <br/> New Lisbon, WI  53950</td>
+
+
+
+                <td>608-853-0071</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>08/10 -<br/> 08/15/2025</td>
+
+
+                <td>Wild Rose Baptist</td>
+
+
+                <td>Ben Terpstra</td>
+                <td>1013 Main ST. <br/> Wild Rose, WI  54984</td>
+
+
+
+                <td>608-397-6688</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>08/17 -<br/> 08/21/2025</td>
+
+
+                <td>Spooner Baptist</td>
+
+
+                <td>Darrel Fleming</td>
+                <td>W7135 Green Valley Rd. <br/> Spooner, WI  54801</td>
+
+
+
+                <td>715-635-2277</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>08/24 -<br/> 08/27/2025</td>
+
+
+                <td>Freedom Baptist</td>
+
+
+                <td>Jim Kohr</td>
+                <td>600 Lake Rd. <br/> Havelock, NC  28532</td>
+
+
+
+                <td>(717) 712-2591</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>09/07 -<br/> 09/12/2025</td>
+
+
+                <td>Memorial Bapist Church</td>
+
+
+                <td>Mike West</td>
+                <td>3693 SE 95th St <br/> Ocala, FL  34480</td>
+
+
+
+                <td>(352) 454-3021</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>09/14 -<br/> 09/19/2025</td>
+
+
+                <td>Victory Baptist Church</td>
+
+
+                <td>Rolland Roberts</td>
+                <td>PO Box 549 Old Grandview Rd. <br/> Beaver, WV  25813</td>
+
+
+
+                <td>(304) 255-4535</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>09/21 -<br/> 09/24/2025</td>
+
+
+                <td>Berean Baptist</td>
+
+
+                <td>Mark Davis</td>
+                <td>2678 Highway 41 <br/> Griffin, GA  30224</td>
+
+
+
+                <td>770-227-5817</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>10/05 -<br/> 10/08/2025</td>
+
+
+                <td>Cornerstone Baptist</td>
+
+
+                <td>John Leonard</td>
+                <td>18280 S. La Canada <br/> Sahaurita, AZ  85629</td>
+
+
+
+                <td>928-919-1092</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>10/12 -<br/> 10/17/2025</td>
+
+
+                <td>Temple Baptist</td>
+
+
+                <td>Cliff Lawton</td>
+                <td>2600 N. Stone Ave. <br/> Tucson, AZ  85703</td>
+
+
+
+                <td>520-250-9201</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>10/19 -<br/> 10/23/2025</td>
+
+
+                <td>Faith Baptist</td>
+
+
+                <td>Emory Brown</td>
+                <td>P.O. Box 1083 <br/> Show Low, AZ  85902</td>
+
+
+
+                <td>(928) 242-4278</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>11/08 -<br/> 11/14/2025</td>
+
+
+                <td>Eastside Baptist</td>
+
+
+                <td>David Fox</td>
+                <td>195 Serral Dr. <br/> Greeneville, TN  37745</td>
+
+
+
+                <td>(423) 639-2582</td>
+
+            </tr>
+
+            <tr>
+
+
+                <td>12/07 -<br/> 12/10/2025</td>
+
+
+                <td>Grace Baptist</td>
+
+
+                <td>Doug Crosby</td>
+                <td>1955 Parker Dr. <br/> Ozark, AL  36360</td>
+
+
+
+                <td>(334) 774-2311</td>
+
+            </tr>
+
+        </table>
+    </div>
+
+
+</div>
+<footer>
+    <p>&copy; 2024 Mike Pellerier Ministries</p>
+</footer>
+</body>
+</html>

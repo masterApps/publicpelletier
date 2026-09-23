@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block style %}
+{% load static %}
+<link href="{% static 'css/card.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div>
+    <H1 class="heading">Resource Files</H1>
+
+    <div class="card-list">
+        {% for item in materials %}
+
+        <div class="col">
+            <a href="{% url 'article_details' item.slug %}">
+                <div class="card">
+                    <h3 class="card-title">{{item.title}}</h3>
+                    
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

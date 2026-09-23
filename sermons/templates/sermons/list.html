@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block style %}
+{% load static %}
+<link href="{% static 'css/card.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="container_my text-center">
+    <h1 class="heading">Past Sermons</h1>
+
+    <div class="card-list">
+        {% for sermon in sermons %}
+
+        <div class="col">
+            <div class="card">
+                <h3 class="card-title">{{sermon.title}}</h3>
+                <audio controls>
+                    <source src="{% url 'audio_file' sermon.pk %}" type="audio/mpeg">
+                </audio>
+                <h4 class="card-subtitle">{{sermon.passage}}</h4>
+                <h4 class="card-subtitle">{{sermon.date}}</h4>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

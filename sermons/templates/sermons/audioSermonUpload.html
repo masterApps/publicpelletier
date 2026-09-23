@@ -1,0 +1,80 @@
+<!-- sermons/templates/sermons/chunked_upload.html -->
+{% extends "editor-base.html" %}
+{% block style %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/upload.css'%}" />
+{% endblock %}
+{% block content %}
+
+<div class="content">
+<div class="container_my">
+  <h1 class="heading">Upload New Sermon</h1>
+
+  <!-- Add CSRF token for JavaScript -->
+  {% csrf_token %}
+
+  <div class="upload-container">
+    <form id="audio-upload-form" class="upload-form">
+      <div class="form-group">
+        <label for="title">Sermon Title:</label>
+        <input type="text" id="title" name="title" required maxlength="100">
+      </div>
+
+      <div class="form-group">
+        <label for="passage">Bible Passage:</label>
+        <input type="text" id="passage" name="passage" required maxlength="100">
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+      </div>
+
+      <div class="form-group">
+        <label for="audio_file">Audio File:</label>
+        <input type="file" id="audio_file" name="audio_file" accept="audio/*" required>
+        <small class="help-text">Supported formats: MP3, WAV, M4A, etc. Large files will be uploaded in chunks to prevent timeouts.</small>
+      </div>
+
+      <div class="upload-progress" style="display: none;">
+        <div class="progress-container">
+          <div class="progress-bar" style="width: 0%;">0%</div>
+        </div>
+      </div>
+
+      <div class="upload-status info"></div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Upload Sermon</button>
+        <a href="{% url 'sermons' %}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Include crypto-js for MD5 hashing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<!-- Include the chunked upload script -->
+<script src="{% static 'scripts/chunking.js' %}"></script>
+
+<script>
+  // Show/hide progress bar based on the upload state
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('audio-upload-form');
+    const progressDiv = document.querySelector('.upload-progress');
+
+    // Override the uploader's progress callback to show/hide progress bar
+    const originalUploadForm = window.AudioUploadForm;
+    if (originalUploadForm) {
+      const originalSetUploading = originalUploadForm.prototype.setUploading;
+      originalUploadForm.prototype.setUploading = function(isUploading) {
+        originalSetUploading.call(this, isUploading);
+        if (progressDiv) {
+          progressDiv.style.display = isUploading ? 'block' : 'none';
+        }
+      };
+    }
+  });
+</script>
+</div>
+{% endblock %}

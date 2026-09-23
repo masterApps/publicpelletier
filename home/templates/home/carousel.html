@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block style %}
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="{% static 'css/carousel.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block Sideshow %}
+<div>
+    <div class="slideshow">
+        <div class="car-container">
+        {% for img in carousel %}
+            <img class="carousel-img" src="{{img.file.url}}"/>
+        {% endfor %}
+        </div>
+        <button id="prev-btn" class="btn-carousel btn prev">P</button>
+        <button id="next-btn" class="btn-carousel btn next">N</button>
+    </div>
+
+    <script src="{% static 'scripts/carousel.js' %}" ></script>
+</div>
+{% endblock %}

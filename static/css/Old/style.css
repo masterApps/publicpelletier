@@ -1,0 +1,94 @@
+img {
+    max-height: 300px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin: 12px;
+    text-align: center;
+}
+
+.article {
+    max-width: 60%;
+    align-self: center;
+}
+
+.article-content {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+.art-img {
+    float: left;
+    margin: 8px;
+}
+
+.body_content {
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+footer {
+    background-color: gray;
+    min-height: 300px;
+}
+
+footer p {
+    text-align: center;
+}
+
+.container_my {
+    margin-left: 64px;
+    margin-right: 64px;
+}
+
+.heading {
+    margin-top: auto;
+}
+
+.card-margin {
+    background-color: #0a1931;
+    border: #0a1931;
+    color: #fff;
+    /* border-radius: 10%; */
+    border-radius: 16px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    margin-left: 5%;
+    margin-right: 5%;
+    z-index: auto;
+    box-shadow: 8px 4px;
+    padding: 16px;
+}
+@media screen and (min-width: 764px) {
+    .card-meetings {
+        min-width: 400px;
+        max-width: 450px;
+    }
+    
+    .card-sermon {
+        min-width: 350px;
+        max-width: 450px;
+    } 
+}
+
+.card-expanded {
+    display: none;
+}
+
+.card-meetings.active .card-expanded {
+    display: block;
+}
+
+.article-body {
+    margin-left: 5%;
+    margin-right: 5%;
+}

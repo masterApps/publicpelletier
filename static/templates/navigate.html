@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Navigation styles */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+            position: relative;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 2rem;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #4dabf7;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Mobile styles */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+                z-index: 10;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -80%;
+                top: 0;
+                flex-direction: column;
+                background-color: #333;
+                width: 80%;
+                height: 100vh;
+                z-index: 1;
+                text-align: center;
+                transition: 0.3s;
+                padding-top: 4rem;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 1.5rem 0;
+            }
+            
+            .nav-link {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">Your Logo</a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            
+            <button class="hamburger">☰</button>
+        </div>
+    </nav>
+
+    <div style="padding: 20px;">
+        <h1>Responsive Navigation Demo</h1>
+        <p>Resize the browser window to see the navigation change to a hamburger menu on mobile devices.</p>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        // Function to handle clicking outside the menu to close it
+        function handleOutsideClick(event) {
+            // If menu is active and click is outside the menu
+            if (navMenu.classList.contains('active') && 
+                !navMenu.contains(event.target) && 
+                event.target !== hamburger) {
+                navMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+            }
+        }
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // Change hamburger icon between ☰ and ✕
+            if (hamburger.textContent === '☰') {
+                hamburger.textContent = '✕';
+                // Add click event listener to document when menu is open
+                setTimeout(() => {
+                    document.addEventListener('click', handleOutsideClick);
+                }, 10);
+            } else {
+                hamburger.textContent = '☰';
+                document.removeEventListener('click', handleOutsideClick);
+            }
+        });
+        
+        // Close menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.textContent = '☰';
+                document.removeEventListener('click', handleOutsideClick);
+            });
+        });
+    </script>
+</body>
+</html>

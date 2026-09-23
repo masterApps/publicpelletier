@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting Form</title>
+</head>
+<body>
+
+<header>
+    <h1>Meeting Form</h1>
+</header>
+
+<!--{% csrf_token %}-->
+
+<div class="upload-section">
+    <h2>Upload CSV File</h2>
+    <p>Upload a CSV file to auto-populate meeting fields.</p>
+    <p>The expected columns: date_start, date_end, location, host, address, city, phone</p>
+
+    <div class="upload-form">
+        <input type="file" name="file" id="csvFile" accept=".csv" class="file-input"/>
+        <label for="csvFile" class="file-input-label">Choose a CSV file</label>
+    </div>
+
+    <div class="csv-example">
+        <strong>CSV Example:</strong><br>
+        date_start,date_end,location,host,address,city,phone<br>
+        2025-07-15,2025-07-15,Ambassador Baptist Church,John Doe,123 Main St,New York,555-1234<br>
+        2025-07-16,2025-07-16,International Baptist Church,Jane Smith,456 Oak Ave,Boston,555-5678
+    </div>
+
+    <div id="csvStatus" style="margin-top: 10px;"></div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+    <button class="btn btn-primary" onclick="addMeeting()">Add Meeting</button>
+    <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+    <button class="btn btn-success" onclick="submitMeetings()">Submit All Meetings</button>
+    <button class="btn btn-info" onclick="loadMeetings()">View Existing Meetings</button>
+</div>
+
+<!-- Loading indicator -->
+<div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Processing...</p>
+</div>
+
+<!-- Messages -->
+<div id="messages"></div>
+
+</body>
+</html>

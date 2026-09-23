@@ -1,0 +1,238 @@
+/* Revival Focus Styling */
+.container {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #dcebf1;
+    text-wrap-style: balance;
+}
+
+.body_home {
+    margin: 32px 8px;
+    padding: 64px 20%;
+    border-style: inset;
+    width: 100%;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: #dcebf1;
+}
+
+#revival {
+    max-width: 100%;
+    text-align-last: center;
+}
+
+.contact-section {
+    border-style: double;
+    border-right: black;
+    border-left: black;
+    width: 100%;
+}
+
+.image-column {
+    flex: 1;
+    align-content: center;
+    width: 100%;
+}
+
+.image-column img {
+    height: 350px;
+}
+
+
+.text-column {
+    padding: 16px 32px;
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.contact-section .text-column {
+    max-width: 100%;
+}
+
+.text-center {
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    width: 100%;
+}
+
+#donate {
+    padding-right: 20%;
+}
+
+#address {
+    padding-left: 20%;
+}
+
+.text--uppercase {
+    text-transform: uppercase;
+}
+
+.text-column h1 {
+    font-size: 1.2rem;
+    color: darkslateblue;
+}
+
+.contact-field {
+    width: 90%;
+    margin-bottom: 4px;
+}
+
+/* Contact Form Styling */
+
+/* Custom CSS for 8px margins and better alignment */
+.form-field {
+    margin-bottom: 8px;
+}
+
+/*!* Ensure all form inputs have consistent styling *!*/
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+
+.row {
+    width: 100%;
+}
+
+/*.form-control:focus {*/
+/*    border-color: #80bdff;*/
+/*    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);*/
+/*}*/
+
+/*!* Align labels consistently *!*/
+/*.form-label {*/
+/*    font-weight: 500;*/
+/*    margin-bottom: 4px;*/
+/*    color: #495057;*/
+/*}*/
+
+/*!* Error message styling *!*/
+/*.text-danger {*/
+/*    font-size: 0.875rem;*/
+/*}*/
+
+/*!* Button styling *!*/
+/*.btn-primary {*/
+/*    padding: 12px 24px;*/
+/*    font-weight: 500;*/
+/*}*/
+
+/*!* Container styling for better presentation *!*/
+/*.form-container {*/
+/*    max-width: 600px;*/
+/*    margin: 0 auto;*/
+/*    padding: 30px;*/
+/*    background: #fff;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*!*body {*!*/
+/*!*    background-color: #f8f9fa;*!*/
+/*!*    padding: 20px;*!*/
+/*!*}*!*/
+
+/*.form-title {*/
+/*    text-align: center;*/
+/*    margin-bottom: 30px;*/
+/*    color: #333;*/
+/*    font-weight: 600;*/
+/*}*/
+
+#contact .text-column {
+    max-width: 400px;
+}
+
+ .contact-form-section {
+     background-color: #dcebf1;
+     padding: 1rem;
+     margin-top: 2rem;
+     width: 100%;
+ }
+
+.contact-card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.contact-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px 10px 0 0;
+    padding: 1.5rem;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    transform: translateY(-1px);
+}
+
+.form-label {
+    min-width: 80px;
+    padding-right: 8px;
+}
+
+.card-body {
+    padding: 16px 5%;
+}
+
+/* Tablet and small desktop */
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .text-center {
+        width: fit-content;
+    }
+
+    .contact-section .text-column {
+        max-width: 50%;
+    }
+    .contact-form-section {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        margin-top: 2rem;
+        width: 30%;
+    }
+    .spacer {
+        max-width 25%;
+        min-width 25%;
+    }
+}

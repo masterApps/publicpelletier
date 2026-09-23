@@ -1,0 +1,59 @@
+.body_home {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 64px;
+    border-style: inset;
+    width: 100%;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    background-color: #dcebf1;
+}
+
+#revival {
+    max-width: 550px;
+}
+
+#contact {
+    border-style: double;
+    border-right: black;
+    border-left: black;
+    max-width: 800px;
+}
+
+.container {  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-column {
+    flex: 1;
+}
+
+.image-column img {
+    height: 350px;
+}
+
+#contact .text-column {
+    max-width: 400px;
+}
+
+.text-column {
+    flex: 1;
+    min-width: 400px;
+}
+
+.text--uppercase {
+    text-transform: uppercase;
+}
+
+.text-column h1 {
+    font-size: 1.2rem;
+    color: darkslateblue;
+}
+
+.contact-field {
+    width: 90%;
+    margin-bottom: 4px;
+}

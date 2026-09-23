@@ -1,0 +1,73 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navigation.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mobile.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/editor.css'%}" />
+    {% block style %}
+    {% endblock %}
+    <title>{{ title }}</title>
+</head>
+<body>
+    <!-- <header> -->
+    <div class="header">
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+            <span>MIKE PELLETIER MINISTRIES</span>
+            <button class="hamburger">☰</button>
+        </div>
+    <!-- </header> -->
+     </div>
+     <div class="header navmenu">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <ul class="nav-menu">
+                    {% if active == 'home' %}
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link active nav-btn btn btn-outline-light me-1">Home</a></li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link nav-btn btn btn-outline-light me-1">Home</a></li>
+                    {% endif %}
+                    {% if active == 'marterials' %}
+                    <li class="nav-item">
+                        <a href="{% url 'meeting_form' %}" class="nav-link active nav-btn btn btn-outline-light me-1">Add Meetings</a></li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'meeting_form' %}" class="nav-link nav-btn btn btn-outline-light me-1">Add Meetings</a></li>
+                    {% endif %}
+                    {% if active == 'about' %}
+                    <li class="nav-item">
+                        <a href="{% url 'chunked_upload' %}" class="nav-link active nav-btn btn btn-outline-light me-1">Upload Sermon</a></li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'chunked_upload' %}" class="nav-link nav-btn btn btn-outline-light me-1">Upload Sermon</a></li>
+                    {% endif %}
+                    {% if active == 'sermons' %}
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link active nav-btn btn btn-outline-light me-1">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link nav-btn btn btn-outline-light me-1">Logout</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <script src="{% static 'scripts/navbar.js' %}" ></script>
+    </div>
+
+    {% block Sideshow %}
+
+    {% endblock %}
+
+    <div class="body_content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <p>&copy; 2024 Mike Pellerier Ministries</p>
+    </footer>
+</body>
+</html>

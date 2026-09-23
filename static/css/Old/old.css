@@ -1,0 +1,35 @@
+.navmenu {
+    text-align: center;
+    background-color: #dcebf1;
+    padding: 0px 20px;
+    padding-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10%;
+    padding-left: 10%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+    padding-bottom: 10px;
+}
+
+.nav-btn {
+    color: #0a1931;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: none;
+    /* border-radius: 5px; */
+}
+
+.nav-btn:hover, .nav-btn:focus, .nav-btn.active {
+    color: #fff;
+    background-color: #0a1931;
+}

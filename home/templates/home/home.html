@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block style %}
+{% load static %}
+<link href="{% static 'css/carousel.css' %}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+{% block Sideshow %}
+<div>
+    <div class="slideshow">
+        <div class="car-container">
+        {% for img in carousel %}
+            <img class="carousel-img" src="{% url 'slide_file' img.pk %}"/>
+        {% endfor %}
+        </div>
+        <button id="prev-btn" class="btn-carousel btn prev">P</button>
+        <button id="next-btn" class="btn-carousel btn next">N</button>
+    </div>
+
+    <script src="{% static 'scripts/carousel.js' %}" ></script>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="body_home">
+    <div class="container" id="revival">
+        <div class="image-column">
+            <img src="{% static 'images/Pelletier.JPG' %}"/>
+        </div>
+        <div class="p-5 text-column">
+            <h1 class="text-capitalize">A passion for revival</h1>
+            <p>We live in a day in which true revival is needed in our country and our world.<br/>
+                It is our prayer that would bring real revival to His people.<br/>
+                Our team is co-laboring with the churches that we are in,
+                across America and across the world,
+                seeking God for revival and reaching the lost for Christ
+            </p>
+            <h1>We desire for God to heal our land.</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Information Section -->
+<div class="contact-section">
+    <div class="container" id="contact-info">
+        <div class="text-column" id="address">
+            <h2>Contact Information</h2>
+            <p><b>Address:</b> Mike Pelletier Ministries <br/>
+            3116 Hollis Road, Ellenboro, NC 28040 <br/>
+            <b>Phone:</b> 704-974-3183 <br/>
+            <b>Email:</b> mike@mikepelletierministries.org</p>
+        </div>
+        <div class="text-column text-center" id="donate">
+            <h1>Donate</h1>
+            <p>If you would like to make a donation to our ministry,
+                you may use the PayPal Donate button below.
+                All donations, unless otherwise specified,
+                are used for our upcoming mission trips.
+                Thank you!</p>
+            <!-- PayPal Donate Button -->
+            <form action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com" />
+                <input type="hidden" name="no_recurring" value="0" />
+                <input type="hidden" name="item_name" value="Donation to {{ site_name }}" />
+                <input type="hidden" name="currency_code" value="USD" />
+
+                <input type="image"
+                       src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+                       border="0"
+                       name="submit"
+                       title="PayPal - The safer, easier way to pay online!"
+                       alt="Donate with PayPal button" />
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div style="display: flex; justify-content: center; align-items: center; background-color: #dcebf1;">
+        <div class="contact-form-section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <!-- Display Messages -->
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <div class="card contact-card">
+                            <div class="contact-header">
+                                <h2 class="text-center mb-0">Send Us a Message</h2>
+                                <p class="text-center mb-0 mt-2">We'd love to hear from you</p>
+                            </div>
+                            <div class="card-body p-4">
+                                <form method="POST">
+                                    {% csrf_token %}
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">{{ form.name.label }}</label>
+                                            {{ form.name }}
+                                            {% if form.name.errors %}
+                                                {% for error in form.name.errors %}
+                                                    <div class="text-danger small mt-1">{{ error }}</div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">{{ form.email.label }}</label>
+                                            {{ form.email }}
+                                            {% if form.email.errors %}
+                                                {% for error in form.email.errors %}
+                                                    <div class="text-danger small mt-1">{{ error }}</div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">{{ form.subject.label }}</label>
+                                        {{ form.subject }}
+                                        {% if form.subject.errors %}
+                                            {% for error in form.subject.errors %}
+                                                <div class="text-danger small mt-1">{{ error }}</div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">{{ form.message.label }}</label>
+                                        {{ form.message }}
+                                        {% if form.message.errors %}
+                                            {% for error in form.message.errors %}
+                                                <div class="text-danger small mt-1">{{ error }}</div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
